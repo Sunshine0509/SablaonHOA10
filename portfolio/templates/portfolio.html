@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>About Me Page</h1>
+        <ul>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#favmovie">FAVORITE MOVIE</a></li>
+            <li><a href="#favmusic">FAVORITE MUSIC</a></li>
+            <img src="{% static 'dark mode.png' %}" id="mode" onclick="DarkMode()">
+        </ul>
+    </header>
+    <main id="about" class="current-page">
+        <h2>My name is<br><span class="text">Sunshine Parone Sablaon</span></h2>
+        <p><b>Age:</b> 24 years old<br><b>Hobbies:</b> Playing online games & Watching movies/series<br><b>Likes:</b> Spicy Foods<br>
+            <b>Dislikes:</b> Okra<br><b>Goals:</b> Enjoy Life to the Fullest<br><b>Favorites:</b> Definetly a good scenery with a coffee<br>
+            <b>Motto/Quote:</b> "Do it for you, not for them"<br> <b>Inspirations:</b> My inspirations is my life, my lover and my family</p>
+        <img src="{% static 'shine.jpg' %}" alt="Profile Picture" class="display-pic">
+        <div class="contact">
+            <img src="{% static 'bgwelcome.jpg' %}" class="bg">
+        </div>
+    </main>
+    <div class="main1">
+        <h3 class="head" id="favmovie">FAVORITE MOVIE</h3>
+        <video
+            src="{% static 'Spirited-Away.mp4' %}"
+            type="mp4"
+            controls="true"
+            autoloop="true"
+            width="700"
+            height="400"
+            class="center">
+        </video>
+        <section class="fav">
+            <div class="container">
+                <div class="image">
+                    <img src="{% static 'spirited-away.png' %}" alt="Spirited Away">
+                </div>
+                <div class="description">
+                    <p>"Spirited Away" is a captivating Japanese animated fantasy film directed by Hayao Miyazaki and produced by Studio Ghibli. The story follows Chihiro, a young girl who becomes trapped in a mysterious and enchanting world after her parents are transformed into pigs by eating food meant for the spirits. In order to rescue her parents and find a way back to the human world, Chihiro must navigate through a bustling bathhouse run by the powerful witch Yubaba. Along the way, she encounters a host of eccentric characters and faces numerous challenges that test her courage, determination, and compassion. Filled with stunning animation, imaginative storytelling, and rich symbolism, "Spirited Away" is a timeless classic beloved by audiences around the world.</p>
+                </div>
+            </div>
+        </section>
+    <div class="main1">
+        <h3 class="head1" id="favmusic">FAVORITE MUSIC</h3>
+        <audio
+            src="{% static 'Goo Goo Dolls - Iris [Official Music Video].mp3' %}"
+            type="mp3"
+            controls="true"
+            autoloop="true"
+            class="center">
+        </audio>
+        <section class="fav">
+            <div class="container">
+                <div class="image">
+                    <img src="{% static 'GGD_Iris.jpg' %}" alt="Goo goo dolls">
+                </div>
+                <div class="description">
+                    <p>The meaning of the song is directly correlates to the plot of the movie, City of Angels. In the movie, the character of Cage is an immortal angel but throws away his immortality for love. He becomes human so he can be with the one he loves.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+function DarkMode() {
+    var mode = document.getElementById('mode');
+    document.body.classList.toggle("dark-mode");
+
+    var bgElements = document.getElementsByClassName('bg');
+    
+    if (document.body.classList.contains("dark-mode")) {
+        mode.src = "{% static 'light mode.png' %}";
+        for (var i = 0; i < bgElements.length; i++) {
+            bgElements[i].style.opacity = 0;
+        }
+    } else {
+        mode.src = "{% static 'dark mode.png' %}";
+        for (var i = 0; i < bgElements.length; i++) {
+            bgElements[i].style.opacity = 1;
+        }
+    }
+}
+
+</script>
+</html>
